@@ -1,0 +1,569 @@
+# Custom Commands
+
+EXECUTE
+ %/gamerule mobGriefing false%
+ ON Twitch Chat Message
+ WITH badges CONTAINS moderator
+ WITH message PREFIX %!explosionsoff%
+
+EXECUTE
+ %/gamerule mobGriefing true%
+ ON Twitch Chat Message
+ WITH badges CONTAINS moderator
+ WITH message PREFIX %!explosionson%
+
+EXECUTE
+ %/time set day%
+ ON Twitch Chat Message
+ WITH badges CONTAINS moderator
+ WITH message PREFIX %!makeitday%
+
+EXECUTE
+ %/time set night%
+ ON Twitch Chat Message
+ WITH badges CONTAINS moderator
+ WITH message PREFIX %!makeitnight%
+
+EXECUTE
+ %/kill @e[type=!player]%
+ ON Twitch Chat Message
+ WITH badges CONTAINS moderator
+ WITH message PREFIX %!cleanupcrew%
+
+# 100 - 299
+
+EXECUTE
+ %/give @p minecraft:oak_planks 2%
+ %/give @p minecraft:spruce_planks 2%
+ %/give @p minecraft:birch_planks 2%
+ %/give @p minecraft:jungle_planks 2%
+ %/give @p minecraft:acacia_planks 2%
+ %/give @p minecraft:dark_oak_planks 2%
+ %/give @p minecraft:brick 2%
+ %/give @p minecraft:white_wool 2%
+ %/summon chicken ~ ~ ~ %{CustomName:"\"${actor}\"",CustomNameVisible:1b}%%
+ ON Twitch Bits
+ WITH donation_amount IN RANGE [1,299]
+
+# 300 - 400
+
+EXECUTE
+ %/give @p minecraft:oak_planks 4%
+ %/give @p minecraft:spruce_planks 4%
+ %/give @p minecraft:birch_planks 4%
+ %/give @p minecraft:jungle_planks 4%
+ %/give @p minecraft:acacia_planks 4%
+ %/give @p minecraft:dark_oak_planks 4%
+ %/give @p minecraft:brick 4%
+ %/give @p minecraft:white_wool 4%
+ %/summon chicken ~ ~ ~ %{CustomName:"\"${actor}\"",CustomNameVisible:1b}%%
+ ON Twitch Bits
+ WITH donation_amount IN RANGE [300,400]
+
+# 401
+
+EXECUTE
+ %/tp @a ~2 ~10 ~2%
+ %/summon chicken ~ ~ ~ %{CustomName:"\"${actor}\"",CustomNameVisible:1b}%%
+ ON Twitch Bits
+ WITH donation_amount = 401
+
+
+# 402-600
+
+BOTH
+ EXECUTE
+  %/give @p minecraft:oak_planks 6%
+  %/give @p minecraft:spruce_planks 6%
+  %/give @p minecraft:birch_planks 6%
+  %/give @p minecraft:jungle_planks 6%
+  %/give @p minecraft:acacia_planks 6%
+  %/give @p minecraft:dark_oak_planks 6%
+  %/give @p minecraft:brick 6%
+  %/give @p minecraft:white_wool 6%
+  %/summon chicken ~ ~ ~ %{CustomName:"\"${actor}\"",CustomNameVisible:1b}%%
+ AND
+ EITHER
+  CHANCE 26 PERCENT
+   EXECUTE %/give @a blue_shulker_box{BlockEntityTag:{Items:[{Slot:0,id:baked_potato,Count:1}]}} 1%
+  OR
+  CHANCE 25 PERCENT
+   EXECUTE %/give @a red_shulker_box{BlockEntityTag:{Items:[{Slot:0,id:baked_potato,Count:1}]}} 1%
+  OR
+  CHANCE 25 PERCENT
+   EXECUTE %/give @a green_shulker_box{BlockEntityTag:{Items:[{Slot:0,id:baked_potato,Count:1}]}} 1%
+  OR
+  CHANCE 8 PERCENT
+   EXECUTE %/give @a blue_shulker_box{BlockEntityTag:{Items:[{Slot:0,id:poisonous_potato,Count:1}]}} 1%
+  OR
+  CHANCE 8 PERCENT
+   EXECUTE %/give @a red_shulker_box{BlockEntityTag:{Items:[{Slot:0,id:poisonous_potato,Count:1}]}} 1%
+  OR
+  CHANCE 8 PERCENT
+   EXECUTE %/give @a green_shulker_box{BlockEntityTag:{Items:[{Slot:0,id:poisonous_potato,Count:1}]}} 1%
+ ON Twitch Bits
+ WITH donation_amount IN RANGE [402,600]
+ 
+ # 601
+
+EXECUTE
+ %/fill ~-2 ~ ~2 ~2 ~2 ~2 snow_block replace air%
+ %/fill ~-2 ~ ~-2 ~2 ~2 ~-2 snow_block replace air%
+ %/fill ~-2 ~ ~-2 ~-2 ~2 ~2 snow_block replace air%
+ %/fill ~2 ~ ~-2 ~2 ~2 ~2 snow_block replace air%
+ %/fill ~-2 ~3 ~-2 ~2 ~3 ~2 snow_block replace air%
+ %/fill ~-2 ~-1 ~-2 ~2 ~-1 ~2 snow_block replace air%
+ %/summon chicken ~ ~ ~ %{CustomName:"\"${actor}\"",CustomNameVisible:1b}%%
+ ON Twitch Bits
+ WITH donation_amount = 601
+ 
+# 602-800
+
+BOTH
+ EXECUTE
+  %/give @p minecraft:oak_planks 8%
+  %/give @p minecraft:spruce_planks 8%
+  %/give @p minecraft:birch_planks 8%
+  %/give @p minecraft:jungle_planks 8%
+  %/give @p minecraft:acacia_planks 8%
+  %/give @p minecraft:dark_oak_planks 8%
+  %/give @p minecraft:brick 8%
+  %/give @p minecraft:white_wool 8%
+  %/summon chicken ~ ~ ~ %{CustomName:"\"${actor}\"",CustomNameVisible:1b}%%
+ AND
+ EITHER
+  CHANCE 26 PERCENT
+   EXECUTE %/give @a blue_shulker_box{BlockEntityTag:{Items:[{Slot:0,id:baked_potato,Count:1}]}} 1%
+  OR
+  CHANCE 25 PERCENT
+   EXECUTE %/give @a red_shulker_box{BlockEntityTag:{Items:[{Slot:0,id:baked_potato,Count:1}]}} 1%
+  OR
+  CHANCE 25 PERCENT
+   EXECUTE %/give @a green_shulker_box{BlockEntityTag:{Items:[{Slot:0,id:baked_potato,Count:1}]}} 1%
+  OR
+  CHANCE 8 PERCENT
+   EXECUTE %/give @a blue_shulker_box{BlockEntityTag:{Items:[{Slot:0,id:poisonous_potato,Count:1}]}} 1%
+  OR
+  CHANCE 8 PERCENT
+   EXECUTE %/give @a red_shulker_box{BlockEntityTag:{Items:[{Slot:0,id:poisonous_potato,Count:1}]}} 1%
+  OR
+  CHANCE 8 PERCENT
+   EXECUTE %/give @a green_shulker_box{BlockEntityTag:{Items:[{Slot:0,id:poisonous_potato,Count:1}]}} 1%
+ ON Twitch Bits
+ WITH donation_amount IN RANGE [602,800]
+ 
+ # 601
+
+BOTH INSTANTLY
+ FOR 2 TIMES SUMMON zombie ~2 ~2 ~ %{IsBaby:1,CustomName:"\"${actor}'s baby army\"",CustomNameVisible:1}%
+ AND
+ FOR 2 TIMES SUMMON zombie ~-2 ~2 ~ %{IsBaby:1,CustomName:"\"${actor}'s baby army\"",CustomNameVisible:1}%
+ ON Twitch Bits
+ WITH donation_amount = 801
+ 
+ 
+# 802-1000
+
+EXECUTE
+ %/give @p minecraft:oak_planks 10%
+ %/give @p minecraft:spruce_planks 10%
+ %/give @p minecraft:birch_planks 10%
+ %/give @p minecraft:jungle_planks 10%
+ %/give @p minecraft:acacia_planks 10%
+ %/give @p minecraft:dark_oak_planks 10%
+ %/give @p minecraft:brick 10%
+ %/give @p minecraft:white_wool 10%
+ %/give @p minecraft:red_dye 10%
+ %/give @p minecraft:green_dye 10%
+ %/give @p minecraft:yellow_dye 10%
+ %/give @p minecraft:blue_dye 10%
+ %/give @p minecraft:brown_dye 10%
+ %/give @p minecraft:black_dye 10%
+ %/give @p minecraft:white_dye 10%
+ %/give @p minecraft:orange_dye 10%
+ %/fill ~-2 ~ ~2 ~2 ~2 ~2 snow_block replace air%
+ %/fill ~-2 ~ ~-2 ~2 ~2 ~-2 snow_block replace air%
+ %/fill ~-2 ~ ~-2 ~-2 ~2 ~2 snow_block replace air%
+ %/fill ~2 ~ ~-2 ~2 ~2 ~2 snow_block replace air%
+ %/fill ~-2 ~3 ~-2 ~2 ~3 ~2 snow_block replace air%
+ %/fill ~-2 ~-1 ~-2 ~2 ~-1 ~2 snow_block replace air%
+ %/give @p torch%
+ ON Twitch Bits
+ WITH donation_amount IN RANGE [802,1000]
+
+# 1001-1500
+
+EXECUTE
+ %/give @p minecraft:oak_planks 15%
+ %/give @p minecraft:spruce_planks 15%
+ %/give @p minecraft:birch_planks 15%
+ %/give @p minecraft:jungle_planks 15%
+ %/give @p minecraft:acacia_planks 15%
+ %/give @p minecraft:dark_oak_planks 15%
+ %/give @p minecraft:brick 15%
+ %/give @p minecraft:white_wool 15%
+ %/give @p minecraft:red_dye 15%
+ %/give @p minecraft:green_dye 15%
+ %/give @p minecraft:yellow_dye 15%
+ %/give @p minecraft:blue_dye 15%
+ %/give @p minecraft:brown_dye 15%
+ %/give @p minecraft:black_dye 15%
+ %/give @p minecraft:white_dye 15%
+ %/give @p minecraft:orange_dye 15%
+ %/fill ~-2 ~ ~2 ~2 ~2 ~2 snow_block replace air%
+ %/fill ~-2 ~ ~-2 ~2 ~2 ~-2 snow_block replace air%
+ %/fill ~-2 ~ ~-2 ~-2 ~2 ~2 snow_block replace air%
+ %/fill ~2 ~ ~-2 ~2 ~2 ~2 snow_block replace air%
+ %/fill ~-2 ~3 ~-2 ~2 ~3 ~2 snow_block replace air%
+ %/fill ~-2 ~-1 ~-2 ~2 ~-1 ~2 snow_block replace air%
+ ON Twitch Bits
+ WITH donation_amount IN RANGE [1001,1500]
+
+# All (1501+)
+
+EXECUTE
+ %/give @p minecraft:oak_planks 20%
+ %/give @p minecraft:spruce_planks 20%
+ %/give @p minecraft:birch_planks 20%
+ %/give @p minecraft:jungle_planks 20%
+ %/give @p minecraft:acacia_planks 20%
+ %/give @p minecraft:dark_oak_planks 20%
+ %/give @p minecraft:brick 20%
+ %/give @p minecraft:white_wool 20%
+ %/give @p minecraft:red_dye 20%
+ %/give @p minecraft:green_dye 20%
+ %/give @p minecraft:yellow_dye 20%
+ %/give @p minecraft:blue_dye 20%
+ %/give @p minecraft:brown_dye 20%
+ %/give @p minecraft:black_dye 20%
+ %/give @p minecraft:white_dye 20%
+ %/give @p minecraft:orange_dye 20%
+ %/summon firework_rocket ~ ~ ~ {LifeTime:15,FireworksItem:{id:firework_rocket,Count:1,tag:{Fireworks:{Explosions:[{Type:2,Colors:[I;11743532,2437522,14602026,15435844],FadeColors:[I;14188952,4312372,6719955,15435844]}],Flight:1}}}}%
+ %/summon firework_rocket ~ ~1 ~ {LifeTime:15,FireworksItem:{id:firework_rocket,Count:1,tag:{Fireworks:{Flight:3,Explosions:[{Type:1,Flicker:0,Trail:1,Colors:[I;11743532],FadeColors:[I;15435844]}]}}}}%
+ %/summon firework_rocket ~ ~1 ~ {LifeTime:15,FireworksItem:{id:firework_rocket,Count:1,tag:{Fireworks:{Flight:2,Explosions:[{Type:1,Flicker:0,Trail:1,Colors:[I;1973019],FadeColors:[I;2651799]}]}}}}%
+ %/summon firework_rocket ~ ~5 ~ {LifeTime:30,FireworksItem:{id:firework_rocket,Count:1,tag:{Fireworks:{Flight:3,Explosions:[{Type:2,Flicker:1,Trail:1,Colors:[I;14188952],FadeColors:[I;15435844]}]}}}}%
+ %/summon firework_rocket ~ ~5 ~ {LifeTime:30,FireworksItem:{id:firework_rocket,Count:1,tag:{Fireworks:{Flight:3,Explosions:[{Type:1,Flicker:1,Trail:1,Colors:[I;11743532],FadeColors:[I;14188952]}]}}}}%
+ %/summon firework_rocket ~ ~5 ~ {LifeTime:30,FireworksItem:{id:firework_rocket,Count:1,tag:{Fireworks:{Flight:3,Explosions:[{Type:4,Flicker:1,Trail:1,Colors:[I;11743532,2437522],FadeColors:[I;14188952,4312372]}]}}}}%
+ %/summon firework_rocket ~ ~ ~ {LifeTime:20,FireworksItem:{id:firework_rocket,Count:1,tag:{Fireworks:{Explosions:[{Type:2,Colors:[I;11743532,2437522,14602026,15435844],FadeColors:[I;14188952,4312372,6719955,15435844]}],Flight:1}}}}%
+ %/summon firework_rocket ~ ~1 ~ {LifeTime:20,FireworksItem:{id:firework_rocket,Count:1,tag:{Fireworks:{Flight:3,Explosions:[{Type:1,Flicker:0,Trail:1,Colors:[I;11743532],FadeColors:[I;15435844]}]}}}}%
+ %/summon firework_rocket ~ ~1 ~ {LifeTime:20,FireworksItem:{id:firework_rocket,Count:1,tag:{Fireworks:{Flight:2,Explosions:[{Type:1,Flicker:0,Trail:1,Colors:[I;1973019],FadeColors:[I;2651799]}]}}}}%
+ %/summon firework_rocket ~ ~5 ~ {LifeTime:35,FireworksItem:{id:firework_rocket,Count:1,tag:{Fireworks:{Flight:3,Explosions:[{Type:2,Flicker:1,Trail:1,Colors:[I;14188952],FadeColors:[I;15435844]}]}}}}%
+ %/summon firework_rocket ~ ~5 ~ {LifeTime:35,FireworksItem:{id:firework_rocket,Count:1,tag:{Fireworks:{Flight:3,Explosions:[{Type:1,Flicker:1,Trail:1,Colors:[I;11743532],FadeColors:[I;14188952]}]}}}}%
+ %/summon firework_rocket ~ ~5 ~ {LifeTime:35,FireworksItem:{id:firework_rocket,Count:1,tag:{Fireworks:{Flight:3,Explosions:[{Type:4,Flicker:1,Trail:1,Colors:[I;11743532,2437522],FadeColors:[I;14188952,4312372]}]}}}}%
+ %/summon firework_rocket ~ ~ ~ {LifeTime:15,FireworksItem:{id:firework_rocket,Count:1,tag:{Fireworks:{Explosions:[{Type:2,Colors:[I;11743532,2437522,14602026,15435844],FadeColors:[I;14188952,4312372,6719955,15435844]}],Flight:1}}}}%
+ %/summon firework_rocket ~ ~1 ~ {LifeTime:15,FireworksItem:{id:firework_rocket,Count:1,tag:{Fireworks:{Flight:3,Explosions:[{Type:1,Flicker:0,Trail:1,Colors:[I;11743532],FadeColors:[I;15435844]}]}}}}%
+ %/summon firework_rocket ~ ~1 ~ {LifeTime:15,FireworksItem:{id:firework_rocket,Count:1,tag:{Fireworks:{Flight:2,Explosions:[{Type:1,Flicker:0,Trail:1,Colors:[I;1973019],FadeColors:[I;2651799]}]}}}}%
+ %/summon firework_rocket ~ ~5 ~ {LifeTime:30,FireworksItem:{id:firework_rocket,Count:1,tag:{Fireworks:{Flight:3,Explosions:[{Type:2,Flicker:1,Trail:1,Colors:[I;14188952],FadeColors:[I;15435844]}]}}}}%
+ %/summon firework_rocket ~ ~5 ~ {LifeTime:30,FireworksItem:{id:firework_rocket,Count:1,tag:{Fireworks:{Flight:3,Explosions:[{Type:1,Flicker:1,Trail:1,Colors:[I;11743532],FadeColors:[I;14188952]}]}}}}%
+ %/summon firework_rocket ~ ~5 ~ {LifeTime:30,FireworksItem:{id:firework_rocket,Count:1,tag:{Fireworks:{Flight:3,Explosions:[{Type:4,Flicker:1,Trail:1,Colors:[I;11743532,2437522],FadeColors:[I;14188952,4312372]}]}}}}%
+ %/summon firework_rocket ~ ~ ~ {LifeTime:20,FireworksItem:{id:firework_rocket,Count:1,tag:{Fireworks:{Explosions:[{Type:2,Colors:[I;11743532,2437522,14602026,15435844],FadeColors:[I;14188952,4312372,6719955,15435844]}],Flight:1}}}}%
+ %/summon firework_rocket ~ ~1 ~ {LifeTime:20,FireworksItem:{id:firework_rocket,Count:1,tag:{Fireworks:{Flight:3,Explosions:[{Type:1,Flicker:0,Trail:1,Colors:[I;11743532],FadeColors:[I;15435844]}]}}}}%
+ %/summon firework_rocket ~ ~1 ~ {LifeTime:20,FireworksItem:{id:firework_rocket,Count:1,tag:{Fireworks:{Flight:2,Explosions:[{Type:1,Flicker:0,Trail:1,Colors:[I;1973019],FadeColors:[I;2651799]}]}}}}%
+ %/summon firework_rocket ~ ~5 ~ {LifeTime:35,FireworksItem:{id:firework_rocket,Count:1,tag:{Fireworks:{Flight:3,Explosions:[{Type:2,Flicker:1,Trail:1,Colors:[I;14188952],FadeColors:[I;15435844]}]}}}}%
+ %/summon firework_rocket ~ ~5 ~ {LifeTime:35,FireworksItem:{id:firework_rocket,Count:1,tag:{Fireworks:{Flight:3,Explosions:[{Type:1,Flicker:1,Trail:1,Colors:[I;11743532],FadeColors:[I;14188952]}]}}}}%
+ %/summon firework_rocket ~ ~5 ~ {LifeTime:35,FireworksItem:{id:firework_rocket,Count:1,tag:{Fireworks:{Flight:3,Explosions:[{Type:4,Flicker:1,Trail:1,Colors:[I;11743532,2437522],FadeColors:[I;14188952,4312372]}]}}}}%
+ %/summon firework_rocket ~ ~ ~ {LifeTime:15,FireworksItem:{id:firework_rocket,Count:1,tag:{Fireworks:{Explosions:[{Type:2,Colors:[I;11743532,2437522,14602026,15435844],FadeColors:[I;14188952,4312372,6719955,15435844]}],Flight:1}}}}%
+ %/summon firework_rocket ~ ~1 ~ {LifeTime:15,FireworksItem:{id:firework_rocket,Count:1,tag:{Fireworks:{Flight:3,Explosions:[{Type:1,Flicker:0,Trail:1,Colors:[I;11743532],FadeColors:[I;15435844]}]}}}}%
+ %/summon firework_rocket ~ ~1 ~ {LifeTime:15,FireworksItem:{id:firework_rocket,Count:1,tag:{Fireworks:{Flight:2,Explosions:[{Type:1,Flicker:0,Trail:1,Colors:[I;1973019],FadeColors:[I;2651799]}]}}}}%
+ %/summon firework_rocket ~ ~5 ~ {LifeTime:30,FireworksItem:{id:firework_rocket,Count:1,tag:{Fireworks:{Flight:3,Explosions:[{Type:2,Flicker:1,Trail:1,Colors:[I;14188952],FadeColors:[I;15435844]}]}}}}%
+ %/summon firework_rocket ~ ~5 ~ {LifeTime:30,FireworksItem:{id:firework_rocket,Count:1,tag:{Fireworks:{Flight:3,Explosions:[{Type:1,Flicker:1,Trail:1,Colors:[I;11743532],FadeColors:[I;14188952]}]}}}}%
+ %/summon firework_rocket ~ ~5 ~ {LifeTime:30,FireworksItem:{id:firework_rocket,Count:1,tag:{Fireworks:{Flight:3,Explosions:[{Type:4,Flicker:1,Trail:1,Colors:[I;11743532,2437522],FadeColors:[I;14188952,4312372]}]}}}}%
+ %/summon firework_rocket ~ ~ ~ {LifeTime:20,FireworksItem:{id:firework_rocket,Count:1,tag:{Fireworks:{Explosions:[{Type:2,Colors:[I;11743532,2437522,14602026,15435844],FadeColors:[I;14188952,4312372,6719955,15435844]}],Flight:1}}}}%
+ %/summon firework_rocket ~ ~1 ~ {LifeTime:20,FireworksItem:{id:firework_rocket,Count:1,tag:{Fireworks:{Flight:3,Explosions:[{Type:1,Flicker:0,Trail:1,Colors:[I;11743532],FadeColors:[I;15435844]}]}}}}%
+ %/summon firework_rocket ~ ~1 ~ {LifeTime:20,FireworksItem:{id:firework_rocket,Count:1,tag:{Fireworks:{Flight:2,Explosions:[{Type:1,Flicker:0,Trail:1,Colors:[I;1973019],FadeColors:[I;2651799]}]}}}}%
+ %/summon firework_rocket ~ ~5 ~ {LifeTime:35,FireworksItem:{id:firework_rocket,Count:1,tag:{Fireworks:{Flight:3,Explosions:[{Type:2,Flicker:1,Trail:1,Colors:[I;14188952],FadeColors:[I;15435844]}]}}}}%
+ %/summon firework_rocket ~ ~5 ~ {LifeTime:35,FireworksItem:{id:firework_rocket,Count:1,tag:{Fireworks:{Flight:3,Explosions:[{Type:1,Flicker:1,Trail:1,Colors:[I;11743532],FadeColors:[I;14188952]}]}}}}%
+ %/summon firework_rocket ~ ~5 ~ {LifeTime:35,FireworksItem:{id:firework_rocket,Count:1,tag:{Fireworks:{Flight:3,Explosions:[{Type:4,Flicker:1,Trail:1,Colors:[I;11743532,2437522],FadeColors:[I;14188952,4312372]}]}}}}%
+ %/summon firework_rocket ~ ~ ~ {LifeTime:15,FireworksItem:{id:firework_rocket,Count:1,tag:{Fireworks:{Explosions:[{Type:2,Colors:[I;11743532,2437522,14602026,15435844],FadeColors:[I;14188952,4312372,6719955,15435844]}],Flight:1}}}}%
+ %/summon firework_rocket ~ ~1 ~ {LifeTime:15,FireworksItem:{id:firework_rocket,Count:1,tag:{Fireworks:{Flight:3,Explosions:[{Type:1,Flicker:0,Trail:1,Colors:[I;11743532],FadeColors:[I;15435844]}]}}}}%
+ %/summon firework_rocket ~ ~1 ~ {LifeTime:15,FireworksItem:{id:firework_rocket,Count:1,tag:{Fireworks:{Flight:2,Explosions:[{Type:1,Flicker:0,Trail:1,Colors:[I;1973019],FadeColors:[I;2651799]}]}}}}%
+ %/summon firework_rocket ~ ~5 ~ {LifeTime:30,FireworksItem:{id:firework_rocket,Count:1,tag:{Fireworks:{Flight:3,Explosions:[{Type:2,Flicker:1,Trail:1,Colors:[I;14188952],FadeColors:[I;15435844]}]}}}}%
+ %/summon firework_rocket ~ ~5 ~ {LifeTime:30,FireworksItem:{id:firework_rocket,Count:1,tag:{Fireworks:{Flight:3,Explosions:[{Type:1,Flicker:1,Trail:1,Colors:[I;11743532],FadeColors:[I;14188952]}]}}}}%
+ %/summon firework_rocket ~ ~5 ~ {LifeTime:30,FireworksItem:{id:firework_rocket,Count:1,tag:{Fireworks:{Flight:3,Explosions:[{Type:4,Flicker:1,Trail:1,Colors:[I;11743532,2437522],FadeColors:[I;14188952,4312372]}]}}}}%
+ %/summon firework_rocket ~ ~ ~ {LifeTime:20,FireworksItem:{id:firework_rocket,Count:1,tag:{Fireworks:{Explosions:[{Type:2,Colors:[I;11743532,2437522,14602026,15435844],FadeColors:[I;14188952,4312372,6719955,15435844]}],Flight:1}}}}%
+ %/summon firework_rocket ~ ~1 ~ {LifeTime:20,FireworksItem:{id:firework_rocket,Count:1,tag:{Fireworks:{Flight:3,Explosions:[{Type:1,Flicker:0,Trail:1,Colors:[I;11743532],FadeColors:[I;15435844]}]}}}}%
+ %/summon firework_rocket ~ ~1 ~ {LifeTime:20,FireworksItem:{id:firework_rocket,Count:1,tag:{Fireworks:{Flight:2,Explosions:[{Type:1,Flicker:0,Trail:1,Colors:[I;1973019],FadeColors:[I;2651799]}]}}}}%
+ %/summon firework_rocket ~ ~5 ~ {LifeTime:35,FireworksItem:{id:firework_rocket,Count:1,tag:{Fireworks:{Flight:3,Explosions:[{Type:2,Flicker:1,Trail:1,Colors:[I;14188952],FadeColors:[I;15435844]}]}}}}%
+ %/summon firework_rocket ~ ~5 ~ {LifeTime:35,FireworksItem:{id:firework_rocket,Count:1,tag:{Fireworks:{Flight:3,Explosions:[{Type:1,Flicker:1,Trail:1,Colors:[I;11743532],FadeColors:[I;14188952]}]}}}}%
+ %/summon firework_rocket ~ ~5 ~ {LifeTime:35,FireworksItem:{id:firework_rocket,Count:1,tag:{Fireworks:{Flight:3,Explosions:[{Type:4,Flicker:1,Trail:1,Colors:[I;11743532,2437522],FadeColors:[I;14188952,4312372]}]}}}}% 
+ %/summon iron_golem ~1 ~ ~ {CustomName:"\"${actor}\"",CustomNameVisible:1b}%
+ ON Twitch Bits
+ WITH donation_amount >= 1501
+
+EITHER
+ SUMMON bee ~ ~ ~ %{CustomName:"\"${actor}\"",CustomNameVisible:1b}%
+ OR
+ SUMMON panda ~ ~ ~ %{CustomName:"\"${actor}\"",CustomNameVisible:1b}%
+ OR
+ SUMMON bat ~ ~ ~ %{CustomName:"\"${actor}\"",CustomNameVisible:1b}%
+ OR
+ SUMMON cat ~ ~ ~ %{CustomName:"\"${actor}\"",CustomNameVisible:1b}%
+ OR
+ SUMMON chicken ~ ~ ~ %{CustomName:"\"${actor}\"",CustomNameVisible:1b}%
+ OR
+ SUMMON cow ~ ~ ~ %{CustomName:"\"${actor}\"",CustomNameVisible:1b}%
+ OR
+ SUMMON horse ~ ~ ~ %{CustomName:"\"${actor}\"",CustomNameVisible:1b}%
+ OR
+ SUMMON mooshroom ~ ~ ~ %{CustomName:"\"${actor}\"",CustomNameVisible:1b}%
+ OR
+ SUMMON mule ~ ~ ~ %{CustomName:"\"${actor}\"",CustomNameVisible:1b}%
+ OR
+ SUMMON donkey ~ ~ ~ %{CustomName:"\"${actor}\"",CustomNameVisible:1b}%
+ OR
+ SUMMON parrot ~ ~ ~ %{CustomName:"\"${actor}\"",CustomNameVisible:1b}%
+ OR
+ SUMMON panda ~ ~ ~ %{CustomName:"\"${actor}\"",CustomNameVisible:1b}%
+ OR
+ SUMMON skeleton_horse ~ ~ ~ %{CustomName:"\"${actor}\"",CustomNameVisible:1b}%
+ OR
+ SUMMON sheep ~ ~ ~ %{CustomName:"\"${actor}\"",CustomNameVisible:1b}%
+ OR
+ SUMMON rabbit ~ ~ ~ %{CustomName:"\"${actor}\"",CustomNameVisible:1b}%
+ OR
+ SUMMON pig ~ ~ ~ %{CustomName:"\"${actor}\"",CustomNameVisible:1b}%
+ OR
+ SUMMON llama ~ ~ ~ %{CustomName:"\"${actor}\"",CustomNameVisible:1b}%
+ DISPLAYING %["Hey look, this thing looks just like ${actor} we had better take care of them"]%
+ ON Twitch Channel Point Reward
+ WITH title IS %Put Me In The Game%
+ 
+EXECUTE
+ %/give @p minecraft:white_wool 5%
+ %/give @p minecraft:red_dye 2%
+ %/give @p minecraft:green_dye 2%
+ %/give @p minecraft:yellow_dye 2%
+ %/give @p minecraft:blue_dye 2%
+ %/give @p minecraft:brown_dye 2%
+ %/give @p minecraft:black_dye 2%
+ %/give @p minecraft:white_dye 2%
+ %/give @p minecraft:orange_dye 2%
+ DISPLAYING %["${actor} has been caught committing onesie abuse"]%
+ ON Twitch Channel Point Reward
+ WITH title IS %Donate to the Void%
+ 
+BOTH
+ EXECUTE
+  %/give @p minecraft:oak_planks 1%
+  %/give @p minecraft:spruce_planks 1%
+  %/give @p minecraft:birch_planks 1%
+  %/give @p minecraft:jungle_planks 1%
+  %/give @p minecraft:acacia_planks 1%
+  %/give @p minecraft:dark_oak_planks 1%
+  %/give @p minecraft:brick 1%
+  %/give @p minecraft:white_wool 1%
+ AND
+ EITHER
+   EXECUTE %/effect give @p speed%
+   OR 
+   EXECUTE %/effect give @p haste%
+   OR 
+   EXECUTE %/effect give @p strength%
+   OR 
+   EXECUTE %/effect give @p jump_boost%
+   OR 
+   EXECUTE %/effect give @p regeneration%
+   OR 
+   EXECUTE %/effect give @p invisibility%
+   OR 
+   EXECUTE %/effect give @p nausea%
+   OR 
+   EXECUTE 
+   %/effect give @p levitation 20%
+   %/effect give @p slow_falling 30%
+   OR
+   EXECUTE %/summon item ~ ~ ~ {Item:{id:"cake",Count:1b}}%
+   OR
+   EXECUTE %/summon item ~ ~ ~ {Item:{id:"baked_potato",Count:1b}}%
+   OR
+   EXECUTE %/summon item ~ ~ ~ {Item:{id:"cooked_chicken",Count:1b}}%
+   OR
+   EXECUTE %/summon item ~ ~ ~ {Item:{id:"cooked_rabbit",Count:1b}}%
+   OR
+   EXECUTE %/summon item ~ ~ ~ {Item:{id:"mushroom_stew",Count:1b}}%
+   OR
+   EXECUTE %/summon item ~ ~ ~ {Item:{id:"golden_apple",Count:1b}}%
+   OR
+   EXECUTE %/summon item ~ ~ ~ {Item:{id:"honey_bottle",Count:1b}}%
+   OR
+   EXECUTE %/fill ~2 ~2 ~2 ~-2 ~-2 ~-2 glass replace air%
+   OR
+   EXECUTE
+    %/summon firework_rocket ~ ~ ~ {LifeTime:15,FireworksItem:{id:firework_rocket,Count:1,tag:{Fireworks:{Explosions:[{Type:2,Colors:[I;11743532,2437522,14602026,15435844],FadeColors:[I;14188952,4312372,6719955,15435844]}],Flight:1}}}}%
+	%/summon firework_rocket ~ ~1 ~ {LifeTime:15,FireworksItem:{id:firework_rocket,Count:1,tag:{Fireworks:{Flight:3,Explosions:[{Type:1,Flicker:0,Trail:1,Colors:[I;11743532],FadeColors:[I;15435844]}]}}}}%
+	%/summon firework_rocket ~ ~1 ~ {LifeTime:15,FireworksItem:{id:firework_rocket,Count:1,tag:{Fireworks:{Flight:2,Explosions:[{Type:1,Flicker:0,Trail:1,Colors:[I;1973019],FadeColors:[I;2651799]}]}}}}%
+	%/summon firework_rocket ~ ~5 ~ {LifeTime:30,FireworksItem:{id:firework_rocket,Count:1,tag:{Fireworks:{Flight:3,Explosions:[{Type:2,Flicker:1,Trail:1,Colors:[I;14188952],FadeColors:[I;15435844]}]}}}}%
+	%/summon firework_rocket ~ ~5 ~ {LifeTime:30,FireworksItem:{id:firework_rocket,Count:1,tag:{Fireworks:{Flight:3,Explosions:[{Type:1,Flicker:1,Trail:1,Colors:[I;11743532],FadeColors:[I;14188952]}]}}}}%
+	%/summon firework_rocket ~ ~5 ~ {LifeTime:30,FireworksItem:{id:firework_rocket,Count:1,tag:{Fireworks:{Flight:3,Explosions:[{Type:4,Flicker:1,Trail:1,Colors:[I;11743532,2437522],FadeColors:[I;14188952,4312372]}]}}}}%
+	%/summon firework_rocket ~ ~ ~ {LifeTime:20,FireworksItem:{id:firework_rocket,Count:1,tag:{Fireworks:{Explosions:[{Type:2,Colors:[I;11743532,2437522,14602026,15435844],FadeColors:[I;14188952,4312372,6719955,15435844]}],Flight:1}}}}%
+	%/summon firework_rocket ~ ~1 ~ {LifeTime:20,FireworksItem:{id:firework_rocket,Count:1,tag:{Fireworks:{Flight:3,Explosions:[{Type:1,Flicker:0,Trail:1,Colors:[I;11743532],FadeColors:[I;15435844]}]}}}}%
+	%/summon firework_rocket ~ ~1 ~ {LifeTime:20,FireworksItem:{id:firework_rocket,Count:1,tag:{Fireworks:{Flight:2,Explosions:[{Type:1,Flicker:0,Trail:1,Colors:[I;1973019],FadeColors:[I;2651799]}]}}}}%
+	%/summon firework_rocket ~ ~5 ~ {LifeTime:35,FireworksItem:{id:firework_rocket,Count:1,tag:{Fireworks:{Flight:3,Explosions:[{Type:2,Flicker:1,Trail:1,Colors:[I;14188952],FadeColors:[I;15435844]}]}}}}%
+	%/summon firework_rocket ~ ~5 ~ {LifeTime:35,FireworksItem:{id:firework_rocket,Count:1,tag:{Fireworks:{Flight:3,Explosions:[{Type:1,Flicker:1,Trail:1,Colors:[I;11743532],FadeColors:[I;14188952]}]}}}}%
+	%/summon firework_rocket ~ ~5 ~ {LifeTime:35,FireworksItem:{id:firework_rocket,Count:1,tag:{Fireworks:{Flight:3,Explosions:[{Type:4,Flicker:1,Trail:1,Colors:[I;11743532,2437522],FadeColors:[I;14188952,4312372]}]}}}}%
+	%/summon firework_rocket ~ ~ ~ {LifeTime:15,FireworksItem:{id:firework_rocket,Count:1,tag:{Fireworks:{Explosions:[{Type:2,Colors:[I;11743532,2437522,14602026,15435844],FadeColors:[I;14188952,4312372,6719955,15435844]}],Flight:1}}}}%
+	%/summon firework_rocket ~ ~1 ~ {LifeTime:15,FireworksItem:{id:firework_rocket,Count:1,tag:{Fireworks:{Flight:3,Explosions:[{Type:1,Flicker:0,Trail:1,Colors:[I;11743532],FadeColors:[I;15435844]}]}}}}%
+	%/summon firework_rocket ~ ~1 ~ {LifeTime:15,FireworksItem:{id:firework_rocket,Count:1,tag:{Fireworks:{Flight:2,Explosions:[{Type:1,Flicker:0,Trail:1,Colors:[I;1973019],FadeColors:[I;2651799]}]}}}}%
+	%/summon firework_rocket ~ ~5 ~ {LifeTime:30,FireworksItem:{id:firework_rocket,Count:1,tag:{Fireworks:{Flight:3,Explosions:[{Type:2,Flicker:1,Trail:1,Colors:[I;14188952],FadeColors:[I;15435844]}]}}}}%
+	%/summon firework_rocket ~ ~5 ~ {LifeTime:30,FireworksItem:{id:firework_rocket,Count:1,tag:{Fireworks:{Flight:3,Explosions:[{Type:1,Flicker:1,Trail:1,Colors:[I;11743532],FadeColors:[I;14188952]}]}}}}%
+	%/summon firework_rocket ~ ~5 ~ {LifeTime:30,FireworksItem:{id:firework_rocket,Count:1,tag:{Fireworks:{Flight:3,Explosions:[{Type:4,Flicker:1,Trail:1,Colors:[I;11743532,2437522],FadeColors:[I;14188952,4312372]}]}}}}%
+	%/summon firework_rocket ~ ~ ~ {LifeTime:20,FireworksItem:{id:firework_rocket,Count:1,tag:{Fireworks:{Explosions:[{Type:2,Colors:[I;11743532,2437522,14602026,15435844],FadeColors:[I;14188952,4312372,6719955,15435844]}],Flight:1}}}}%
+	%/summon firework_rocket ~ ~1 ~ {LifeTime:20,FireworksItem:{id:firework_rocket,Count:1,tag:{Fireworks:{Flight:3,Explosions:[{Type:1,Flicker:0,Trail:1,Colors:[I;11743532],FadeColors:[I;15435844]}]}}}}%
+	%/summon firework_rocket ~ ~1 ~ {LifeTime:20,FireworksItem:{id:firework_rocket,Count:1,tag:{Fireworks:{Flight:2,Explosions:[{Type:1,Flicker:0,Trail:1,Colors:[I;1973019],FadeColors:[I;2651799]}]}}}}%
+	%/summon firework_rocket ~ ~5 ~ {LifeTime:35,FireworksItem:{id:firework_rocket,Count:1,tag:{Fireworks:{Flight:3,Explosions:[{Type:2,Flicker:1,Trail:1,Colors:[I;14188952],FadeColors:[I;15435844]}]}}}}%
+	%/summon firework_rocket ~ ~5 ~ {LifeTime:35,FireworksItem:{id:firework_rocket,Count:1,tag:{Fireworks:{Flight:3,Explosions:[{Type:1,Flicker:1,Trail:1,Colors:[I;11743532],FadeColors:[I;14188952]}]}}}}%
+	%/summon firework_rocket ~ ~5 ~ {LifeTime:35,FireworksItem:{id:firework_rocket,Count:1,tag:{Fireworks:{Flight:3,Explosions:[{Type:4,Flicker:1,Trail:1,Colors:[I;11743532,2437522],FadeColors:[I;14188952,4312372]}]}}}}%
+	%/summon firework_rocket ~ ~ ~ {LifeTime:15,FireworksItem:{id:firework_rocket,Count:1,tag:{Fireworks:{Explosions:[{Type:2,Colors:[I;11743532,2437522,14602026,15435844],FadeColors:[I;14188952,4312372,6719955,15435844]}],Flight:1}}}}%
+	%/summon firework_rocket ~ ~1 ~ {LifeTime:15,FireworksItem:{id:firework_rocket,Count:1,tag:{Fireworks:{Flight:3,Explosions:[{Type:1,Flicker:0,Trail:1,Colors:[I;11743532],FadeColors:[I;15435844]}]}}}}%
+	%/summon firework_rocket ~ ~1 ~ {LifeTime:15,FireworksItem:{id:firework_rocket,Count:1,tag:{Fireworks:{Flight:2,Explosions:[{Type:1,Flicker:0,Trail:1,Colors:[I;1973019],FadeColors:[I;2651799]}]}}}}%
+	%/summon firework_rocket ~ ~5 ~ {LifeTime:30,FireworksItem:{id:firework_rocket,Count:1,tag:{Fireworks:{Flight:3,Explosions:[{Type:2,Flicker:1,Trail:1,Colors:[I;14188952],FadeColors:[I;15435844]}]}}}}%
+	%/summon firework_rocket ~ ~5 ~ {LifeTime:30,FireworksItem:{id:firework_rocket,Count:1,tag:{Fireworks:{Flight:3,Explosions:[{Type:1,Flicker:1,Trail:1,Colors:[I;11743532],FadeColors:[I;14188952]}]}}}}%
+	%/summon firework_rocket ~ ~5 ~ {LifeTime:30,FireworksItem:{id:firework_rocket,Count:1,tag:{Fireworks:{Flight:3,Explosions:[{Type:4,Flicker:1,Trail:1,Colors:[I;11743532,2437522],FadeColors:[I;14188952,4312372]}]}}}}%
+	%/summon firework_rocket ~ ~ ~ {LifeTime:20,FireworksItem:{id:firework_rocket,Count:1,tag:{Fireworks:{Explosions:[{Type:2,Colors:[I;11743532,2437522,14602026,15435844],FadeColors:[I;14188952,4312372,6719955,15435844]}],Flight:1}}}}%
+	%/summon firework_rocket ~ ~1 ~ {LifeTime:20,FireworksItem:{id:firework_rocket,Count:1,tag:{Fireworks:{Flight:3,Explosions:[{Type:1,Flicker:0,Trail:1,Colors:[I;11743532],FadeColors:[I;15435844]}]}}}}%
+	%/summon firework_rocket ~ ~1 ~ {LifeTime:20,FireworksItem:{id:firework_rocket,Count:1,tag:{Fireworks:{Flight:2,Explosions:[{Type:1,Flicker:0,Trail:1,Colors:[I;1973019],FadeColors:[I;2651799]}]}}}}%
+	%/summon firework_rocket ~ ~5 ~ {LifeTime:35,FireworksItem:{id:firework_rocket,Count:1,tag:{Fireworks:{Flight:3,Explosions:[{Type:2,Flicker:1,Trail:1,Colors:[I;14188952],FadeColors:[I;15435844]}]}}}}%
+	%/summon firework_rocket ~ ~5 ~ {LifeTime:35,FireworksItem:{id:firework_rocket,Count:1,tag:{Fireworks:{Flight:3,Explosions:[{Type:1,Flicker:1,Trail:1,Colors:[I;11743532],FadeColors:[I;14188952]}]}}}}%
+	%/summon firework_rocket ~ ~5 ~ {LifeTime:35,FireworksItem:{id:firework_rocket,Count:1,tag:{Fireworks:{Flight:3,Explosions:[{Type:4,Flicker:1,Trail:1,Colors:[I;11743532,2437522],FadeColors:[I;14188952,4312372]}]}}}}%
+	%/summon firework_rocket ~ ~ ~ {LifeTime:15,FireworksItem:{id:firework_rocket,Count:1,tag:{Fireworks:{Explosions:[{Type:2,Colors:[I;11743532,2437522,14602026,15435844],FadeColors:[I;14188952,4312372,6719955,15435844]}],Flight:1}}}}%
+	%/summon firework_rocket ~ ~1 ~ {LifeTime:15,FireworksItem:{id:firework_rocket,Count:1,tag:{Fireworks:{Flight:3,Explosions:[{Type:1,Flicker:0,Trail:1,Colors:[I;11743532],FadeColors:[I;15435844]}]}}}}%
+	%/summon firework_rocket ~ ~1 ~ {LifeTime:15,FireworksItem:{id:firework_rocket,Count:1,tag:{Fireworks:{Flight:2,Explosions:[{Type:1,Flicker:0,Trail:1,Colors:[I;1973019],FadeColors:[I;2651799]}]}}}}%
+	%/summon firework_rocket ~ ~5 ~ {LifeTime:30,FireworksItem:{id:firework_rocket,Count:1,tag:{Fireworks:{Flight:3,Explosions:[{Type:2,Flicker:1,Trail:1,Colors:[I;14188952],FadeColors:[I;15435844]}]}}}}%
+	%/summon firework_rocket ~ ~5 ~ {LifeTime:30,FireworksItem:{id:firework_rocket,Count:1,tag:{Fireworks:{Flight:3,Explosions:[{Type:1,Flicker:1,Trail:1,Colors:[I;11743532],FadeColors:[I;14188952]}]}}}}%
+	%/summon firework_rocket ~ ~5 ~ {LifeTime:30,FireworksItem:{id:firework_rocket,Count:1,tag:{Fireworks:{Flight:3,Explosions:[{Type:4,Flicker:1,Trail:1,Colors:[I;11743532,2437522],FadeColors:[I;14188952,4312372]}]}}}}%
+	%/summon firework_rocket ~ ~ ~ {LifeTime:20,FireworksItem:{id:firework_rocket,Count:1,tag:{Fireworks:{Explosions:[{Type:2,Colors:[I;11743532,2437522,14602026,15435844],FadeColors:[I;14188952,4312372,6719955,15435844]}],Flight:1}}}}%
+	%/summon firework_rocket ~ ~1 ~ {LifeTime:20,FireworksItem:{id:firework_rocket,Count:1,tag:{Fireworks:{Flight:3,Explosions:[{Type:1,Flicker:0,Trail:1,Colors:[I;11743532],FadeColors:[I;15435844]}]}}}}%
+	%/summon firework_rocket ~ ~1 ~ {LifeTime:20,FireworksItem:{id:firework_rocket,Count:1,tag:{Fireworks:{Flight:2,Explosions:[{Type:1,Flicker:0,Trail:1,Colors:[I;1973019],FadeColors:[I;2651799]}]}}}}%
+	%/summon firework_rocket ~ ~5 ~ {LifeTime:35,FireworksItem:{id:firework_rocket,Count:1,tag:{Fireworks:{Flight:3,Explosions:[{Type:2,Flicker:1,Trail:1,Colors:[I;14188952],FadeColors:[I;15435844]}]}}}}%
+	%/summon firework_rocket ~ ~5 ~ {LifeTime:35,FireworksItem:{id:firework_rocket,Count:1,tag:{Fireworks:{Flight:3,Explosions:[{Type:1,Flicker:1,Trail:1,Colors:[I;11743532],FadeColors:[I;14188952]}]}}}}%
+	%/summon firework_rocket ~ ~5 ~ {LifeTime:35,FireworksItem:{id:firework_rocket,Count:1,tag:{Fireworks:{Flight:3,Explosions:[{Type:4,Flicker:1,Trail:1,Colors:[I;11743532,2437522],FadeColors:[I;14188952,4312372]}]}}}}%
+ ON Twitch Channel Point Reward
+ WITH title IS %Help Me%
+
+BOTH INSTANTLY 
+ EXECUTE %/playsound minecraft:entity.wolf.howl player @p%
+ AND
+ FOR ${raiders} TIMES SUMMON zombie ~ ~2 ~ %{CustomName:"\"${actor}'s Army\"", CustomNameVisible:1, ArmorItems:[{},{},{},{Count:1,id:turtle_helmet}]}%
+ DISPLAYING %["PANIC! It's a raid and you are defenseless"]%
+ ON Twitch Raid WITH raider_count > 4
+ 
+EITHER
+ CHANCE 25 PERCENT
+  EXECUTE %/give @p minecraft:iron_ingot 6%
+   %/summon minecraft:spider ~ ~ ~ {CustomName:"\"${actor}\"",CustomNameVisible:1b}%
+ OR
+ CHANCE 10 PERCENT
+  EXECUTE %/give @p minecraft:diamond 5%
+   %/summon minecraft:spider ~ ~ ~ {CustomName:"\"${actor}\"",CustomNameVisible:1b}%
+ OR
+ CHANCE 5 PERCENT
+  EXECUTE %/give @p minecraft:netherite_ingot 1%
+   %/summon minecraft:spider ~ ~ ~ {CustomName:"\"${actor}\"",CustomNameVisible:1b}%
+ OR
+ CHANCE 10 PERCENT
+  EXECUTE %/give @p golden_axe{display:{Name:'[{"text":"The Ban Hammer","italic":false}]'},Enchantments:[{id:fire_aspect,lvl:2},{id:knockback,lvl:50},{id:smite,lvl:5}]} 1%
+   %/summon minecraft:spider ~ ~ ~ {CustomName:"\"${actor}\"",CustomNameVisible:1b}%
+ OR
+ CHANCE 10 PERCENT
+  EXECUTE %/give @p golden_chestplate{display:{Name:'[{"text":"Glamorous Tanktop","italic":false}]'},Enchantments:[{id:projectile_protection,lvl:4},{id:protection,lvl:4}]} 1%
+   %/summon minecraft:spider ~ ~ ~ {CustomName:"\"${actor}\"",CustomNameVisible:1b}%
+ OR
+ CHANCE 10 PERCENT
+  EXECUTE %/give @p leather_helmet{display:{color:11546150,Name:'[{"text":"The Red Bucket","italic":false}]'},Enchantments:[{id:aqua_affinity,lvl:1},{id:respiration,lvl:3}],HideFlags:64} 1%
+   %/summon minecraft:spider ~ ~ ~ {CustomName:"\"${actor}\"",CustomNameVisible:1b}%
+ OR
+ CHANCE 10 PERCENT
+  EXECUTE %/give @p leather_leggings{display:{color:3847130,Name:'[{"text":"The Fancy Pants","italic":false}]'},Enchantments:[{id:blast_protection,lvl:4},{id:fire_protection,lvl:4}],HideFlags:64} 1%
+   %/summon minecraft:spider ~ ~ ~ {CustomName:"\"${actor}\"",CustomNameVisible:1b}%
+ OR
+ CHANCE 10 PERCENT
+  BOTH INSTANTLY
+   THROW main-hand
+   AND
+   CHANGE main-hand INTO golden_sword
+   AND
+   EXECUTE %/enchant @p fire_aspect 2%
+   AND
+   EXECUTE %/enchant @p knockback 2%
+   AND
+   EXECUTE %/enchant @p looting 3% 
+   AND
+   EXECUTE %/enchant @p sharpness 5%
+ OR
+ CHANCE 10 PERCENT
+  BOTH INSTANTLY
+  THROW boots
+  AND
+  CHANGE boots INTO diamond_boots{display:{Name:"\"Shelly_in_the_sky_with_Diamond_socks\""},Enchantments:[{id:feather_falling,lvl:4},{id:frost_walker,lvl:2},{id:binding_curse,lvl:1},{id:mending,lvl:1}]} 1
+ DISPLAYING %["${actor} just subscribed"]%
+ ON Twitch Subscription Gift
+ 
+EITHER
+ CHANCE 25 PERCENT
+  EXECUTE %/give @p minecraft:iron_ingot 6%
+   %/summon minecraft:spider ~ ~ ~ {CustomName:"\"${actor}\"",CustomNameVisible:1b}%
+ OR
+ CHANCE 10 PERCENT
+  EXECUTE %/give @p minecraft:diamond 5%
+   %/summon minecraft:spider ~ ~ ~ {CustomName:"\"${actor}\"",CustomNameVisible:1b}%
+ OR
+ CHANCE 5 PERCENT
+  EXECUTE %/give @p minecraft:netherite_ingot 1%
+   %/summon minecraft:spider ~ ~ ~ {CustomName:"\"${actor}\"",CustomNameVisible:1b}%
+ OR
+ CHANCE 10 PERCENT
+  EXECUTE %/give @p golden_axe{display:{Name:'[{"text":"The Ban Hammer","italic":false}]'},Enchantments:[{id:binding_curse,lvl:1},{id:fire_aspect,lvl:2},{id:knockback,lvl:50},{id:smite,lvl:5}]} 1%
+   %/summon minecraft:spider ~ ~ ~ {CustomName:"\"${actor}\"",CustomNameVisible:1b}%
+ OR
+ CHANCE 10 PERCENT
+  EXECUTE %/give @p golden_chestplate{display:{Name:'[{"text":"Glamorous Tanktop","italic":false}]'},Enchantments:[{id:binding_curse,lvl:1},{id:projectile_protection,lvl:4},{id:protection,lvl:4}]} 1%
+   %/summon minecraft:spider ~ ~ ~ {CustomName:"\"${actor}\"",CustomNameVisible:1b}%
+ OR
+ CHANCE 10 PERCENT
+  EXECUTE %/give @p leather_helmet{display:{color:11546150,Name:'[{"text":"The Red Bucket","italic":false}]'},Enchantments:[{id:aqua_affinity,lvl:1},{id:binding_curse,lvl:1},{id:respiration,lvl:3}],HideFlags:64} 1%
+   %/summon minecraft:spider ~ ~ ~ {CustomName:"\"${actor}\"",CustomNameVisible:1b}%
+ OR
+ CHANCE 10 PERCENT
+  EXECUTE %/give @p leather_leggings{display:{color:3847130,Name:'[{"text":"The Fancy Pants","italic":false}]'},Enchantments:[{id:blast_protection,lvl:4},{id:binding_curse,lvl:1},{id:fire_protection,lvl:4}],HideFlags:64} 1%
+   %/summon minecraft:spider ~ ~ ~ {CustomName:"\"${actor}\"",CustomNameVisible:1b}%
+ OR
+ CHANCE 10 PERCENT
+  BOTH INSTANTLY
+   THROW main-hand
+   AND
+   CHANGE main-hand INTO golden_sword
+   AND
+   EXECUTE %/enchant @p fire_aspect 2%
+   AND
+   EXECUTE %/enchant @p knockback 2%
+   AND
+   EXECUTE %/enchant @p looting 3% 
+   AND
+   EXECUTE %/enchant @p sharpness 5%
+ OR
+ CHANCE 10 PERCENT
+  BOTH INSTANTLY
+  THROW boots
+  AND
+  CHANGE boots INTO diamond_boots{display:{Name:"\"Shelly_in_the_sky_with_Diamond_socks\""},Enchantments:[{id:feather_falling,lvl:4},{id:frost_walker,lvl:2},{id:binding_curse,lvl:1},{id:mending,lvl:1}]} 1
+ DISPLAYING %["${actor} just subscribed"]%
+ ON Twitch Subscription
+
+EITHER
+ CHANCE 20 PERCENT
+  EXECUTE %/playsound minecraft:entity.creeper.primed player @p%
+ OR
+ CHANCE 20 PERCENT
+  EXECUTE %/playsound minecraft:entity.chicken.hurt player @p%
+ OR
+ CHANCE 20 PERCENT
+  EXECUTE %/playsound minecraft:entity.witch.celebrate player @p%
+ OR
+ CHANCE 20 PERCENT
+  EXECUTE %/playsound minecraft:entity.husk.ambient player @p%
+ OR
+ CHANCE 20 PERCENT
+  EXECUTE %/playsound minecraft:entity.wolf.howl player @p%
+ DISPLAYING %["${actor} just followed"]%
+ ON Twitch Follow
+ 
