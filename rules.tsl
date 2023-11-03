@@ -338,7 +338,7 @@ EXECUTE
  %/give @p minecraft:black_dye 2%
  %/give @p minecraft:white_dye 2%
  %/give @p minecraft:orange_dye 2%
- DISPLAYING %["${actor} has been caught committing onesie abuse"]%
+ DISPLAYING %["${actor} has been caught committing abuse"]%
  ON Twitch Channel Point Reward
  WITH title IS %Donate to the Void%
  
